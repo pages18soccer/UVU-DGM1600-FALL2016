@@ -1,0 +1,148 @@
+<!DOCTYPE>
+<html>
+<head> Ruler of the Sky!
+</head>
+<body>
+<script>
+
+
+            //* JavaScript : Skyworld! *//
+
+            //* Game Functions*//
+            
+
+            //* Character name*//
+
+            alert("Ruler of Everything Game!");  
+  
+           	//var playerName = prompt("Name your character ");
+  
+            var player=new Player(prompt("Name your character "));
+  
+            var gameStart = confirm(player.name+" are you ready to begin your adventure?");
+               if(gameStart){
+                clouds();
+            }
+            else{
+                gameOver();
+            }
+              function Player(playerName){
+                
+                this.name =playerName;
+              }
+            
+            //* Starting Clouds *//
+            function clouds(){
+                
+                var input =prompt("Welcome! " + player.name+ ", this is your chance to change your destiny. You are a little starling within the skies, however you have grown sick of the clouds and desire to explore new places, this is your adventure! Where do you go? Earth, Moon, or Stay? ").toLowerCase();
+               switch(input){
+                case "earth": 
+                  earth();
+                   break;
+                 case "moon":
+                   moon();
+                   break;
+                 case "stay":
+                   stay()
+                   break;
+                 default:
+                   alert("What do you mean?");
+                   clouds()
+                   break;
+              }
+            }
+               //* Switch statement Earth *//
+              function earth(){
+              var input =prompt("This is Earth! Welcome! Do you choose ocean, forest, desert, or leave?") 
+              switch(input){
+                    case "ocean":
+                        alert("The ocean becomes closer and you realize if you land in it you will drown. Therefore you decide to keep flying.");
+                        earth();
+                        break;
+                    case "forest":
+                        alert("The forest is a nice weird place for a little starling like yourself. You are fascinated with the many different species of plants and animals and decide that this is where you belong.");
+                        earth();
+                        break;
+                    case "desert":
+                        alert("The desert is a barren wastespace that causes you to be lightheaded, you move along.");
+                        earth();
+                         break;
+                    case "leave":
+                        clouds();
+                 break;
+                    default:
+                        alert("What does "+path+" means?");
+                        earth();
+                }
+                
+            
+                
+            }
+            
+            //* Moon *//
+            function moon(){
+                var input = prompt("You fly towards the moon, there are strange creatures on the moon! Do you go closer or fly on? (creatures, or fly)").toLowerCase();
+                
+                if(input ==="creatures"){
+                    creatures();
+                }
+                else if(input ==="fly"){
+                    clouds();
+                }
+                else{
+                    alert("What do you mean "+input+" ?!");
+                    moon();
+                }
+            }
+            
+            function creatures(){
+                var creatures = new Array();
+				creatures[0]="The creatures find you to interesting and invite you to join their ranks!";
+				creatures[1]="The creatures find your wings to be disgusting and kill you!";
+				creatures[2]="The creatures ignore you and continue with their work!";
+				creatures[3]="The creatures stare at you for long minutes while you size each other up...";
+			    var randomCreatures = creatures[Math.floor(Math.random() * creatures.length)];
+          
+				alert(randomCreatures);
+                if (randomCreatures ===  creatures[1])
+                   win();
+              
+                if (randomCreatures === creatures[0])
+                  gameOver();
+                if (randomCreatures === creatures[3])
+                  creatures();
+                    
+                else 
+                    clouds();
+            }
+                 
+  
+				
+         
+           function fly(){
+             clouds();
+           }
+            
+        //*Stay*//
+  function stay (){
+    alert("You will be a little starling forever and never progress, enjoy damnation.");
+  }
+    
+            
+    //* Game Win *//
+            function win(){
+                alert("Congratulations you are the Ruler!!");
+                
+            }
+            
+            //* Game Over*//
+            function gameOver(){
+                alert("Sorry no entertainment... Goodbye!");
+                
+            }
+
+        
+
+</script>
+</body>
+</html>
